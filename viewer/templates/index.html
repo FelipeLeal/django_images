@@ -1,0 +1,30 @@
+{% extends 'base.html' %}
+
+{% load static %}
+
+{% block images_viewer %}
+    <p><a href="{% url 'upload' %}">Upload an image</a></p>
+    <style>
+        table, th, td {
+            border: 1px solid black;
+        }
+    </style>
+    <table>
+        <tr>
+            <th>Nickname</th>
+            <th>Pet Name</th>
+            <th>URL</th>
+            <th>Ranking</th>
+        </tr>
+        {% for item in images %}
+            <tr>
+                <td>{{ item.nickname }}</td>
+                <td>{{ item.pet_name }}</td>
+                <td>{{ item.img_url }}</td>
+                <td>{{ item.rank }}</td>
+            </tr>
+        {% endfor %}
+    </table>
+{% endblock %}
+
+
