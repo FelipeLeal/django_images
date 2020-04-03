@@ -1,7 +1,5 @@
 {% extends 'base.html' %}
 
-{% load static %}
-
 {% block images_viewer %}
     <p><a href="{% url 'upload' %}">Upload an image</a></p>
     <style>
@@ -20,11 +18,16 @@
             <tr>
                 <td>{{ item.nickname }}</td>
                 <td>{{ item.pet_name }}</td>
-                <td>{{ item.img_url }}</td>
+                <td>
+                    <img src="/media/{{ item.img_dir }}" alt="img_load">
+                </td>
                 <td>{{ item.rank }}</td>
             </tr>
         {% endfor %}
     </table>
+    <div class="like_button_container" data-commentid="1"></div>
+    <div class="like_button_container" data-commentid="2"></div>
+    <div class="like_button_container" data-commentid="3"></div>
 {% endblock %}
 
 

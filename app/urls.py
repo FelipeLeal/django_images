@@ -21,8 +21,9 @@ from viewer import views
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('', views.home, name='index'),
+    path('index/', views.home, name='index'),
     path('upload/', views.simple_upload, name='upload'),
+    # path('upload/', views.model_form_upload, name='upload'),
 ]
 
 if settings.DEBUG:

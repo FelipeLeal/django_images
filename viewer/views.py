@@ -1,5 +1,6 @@
-from django.shortcuts import render
+from django.shortcuts import render, redirect
 from django.core.files.storage import FileSystemStorage
+from .forms import PhotoForm
 from .models import Photo
 
 # Create your views here.
@@ -20,4 +21,12 @@ def simple_upload(request):
         })
     return render(request, 'upload.html', {'title': 'Upload'})
 
-
+def model_form_upload(request):
+    if request.method == 'POST':
+        form = PhotoForm(request.POST, request.FILES)
+        if form.is_valid():
+            form.save()
+            return redirect('home')
+    else:
+        form = PhotoForm()
+    return render(request, 'upload.html', {'form': form})

@@ -17,7 +17,7 @@ class Migration(migrations.Migration):
                 ('id', models.AutoField(auto_created=True, primary_key=True, serialize=False, verbose_name='ID')),
                 ('nickname', models.CharField(max_length=255)),
                 ('pet_name', models.CharField(max_length=255)),
-                ('img_url', models.ImageField(upload_to='uploads/%Y/%m/%d/')),
+                ('img_dir', models.ImageField(upload_to='uploads/%Y/%m/%d/')),
                 ('rank', models.FloatField()),
             ],
         ),
